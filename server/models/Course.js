@@ -8,7 +8,7 @@ const CourseSchema = mongoose.Schema({
   },
   categoria_id: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Users",
+    ref: "Categorys",
     required: true,
   },
   name: {
@@ -16,20 +16,26 @@ const CourseSchema = mongoose.Schema({
     minLength: 5,
     required: true,
   },
-  cursos: {
-    type: Array,
-    default: [],
-  },
+  cursos: [
+    {
+      type: Map,
+      required: true,
+    },
+  ],
   status: {
     type: Boolean,
     default: true,
   },
+  ranking: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Users",
+    },
+  ],
 });
 
 CourseSchema.pre("save", function (next) {
   this.name = this.name.toLowerCase();
-  this.lastName = this.lastName.toLowerCase();
-  this.email = this.email.toLowerCase();
   next();
 });
 

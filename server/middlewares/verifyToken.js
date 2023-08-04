@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { codeErrorInternal } from "../utils/httpCodes";
+import { codeError401, codeErrorInternal } from "../utils/httpCodes.js";
 
 const verifyToken = async (req, res, next) => {
   try {
@@ -7,7 +7,7 @@ const verifyToken = async (req, res, next) => {
 
     if (!token) {
       return res.status(codeError401).json({
-        message: "Acceso denegado",
+        message: "Acceso denegado, proveer un token válido",
       });
     }
 

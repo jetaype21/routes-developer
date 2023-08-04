@@ -26,12 +26,6 @@ const UserSchema = mongoose.Schema({
     required: true,
     minLength: 5,
   },
-  favorites: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Courses",
-    },
-  ],
 });
 
 UserSchema.pre("save", function (next) {

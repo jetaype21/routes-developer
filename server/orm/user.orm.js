@@ -92,3 +92,39 @@ export const loginUserOrm = async (user) => {
     };
   }
 };
+
+export const updateUserOrm = async (user) => {
+  try {
+    const { _id, ...rest } = user;
+    const { name, lastName, email } = rest;
+    let userUpdate;
+
+    await UserModel.findByIdAndUpdate(
+      _id,
+      { name, lastName, email },
+      { new: true }
+    )
+      .then((categoryRes) => {
+        if (!categoryRes) {
+          throw new Error(`El usuario con id ${_id} no existe.`);
+        }
+
+        userUpdate = categoryRes;
+      })
+      .catch((err) => {
+        throw new Error(err);
+      });
+
+    delete userUpdate._doc.password;
+
+    return {
+      status_code: codeSuccess201,
+      data: userUpdate,
+    };
+  } catch (error) {
+    return {
+      status_code: codeErrorInternal,
+      message: error.message || "Ocurrió un error interno.",
+    };
+  }
+};
