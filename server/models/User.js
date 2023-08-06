@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const UserSchema = mongoose.Schema({
   name: {
     type: String,
-    minLength: 5,
+    minLength: 3,
     required: true,
   },
   lastName: {

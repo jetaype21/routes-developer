@@ -105,15 +105,12 @@ export const createCourseOrm = async (body) => {
   try {
     let courseCreate;
 
-    console.log(body);
     const { user_id, categoria_id, name, cursos } = body;
 
     const [userRes, categoryRes] = await Promise.all([
       UserModel.findById(user_id).exec(),
       CategoryModel.findById(categoria_id).exec(),
     ]);
-
-    console.log("pase");
 
     if (!userRes) {
       throw new Error(`El usuario con id ${user_id} no existe.`);
@@ -191,7 +188,6 @@ export const deleteCourseOrm = async (body) => {
     let courseDelete;
 
     const courseFind = await CourseModel.findById(_id).exec();
-    console.log(courseFind);
     if (!courseFind) {
       throw new Error(`El curso con id ${_id} no existe.`);
     }

@@ -8,6 +8,9 @@ import bodyParser from "body-parser";
 // local
 import rootRouter from "./routes/rootRouter.js";
 import morgan from "morgan";
+// import User from "./models/User.js";
+// import { categorias, users } from "./data.js";
+// import Category from "./models/Category.js";
 
 const app = express();
 
@@ -28,6 +31,8 @@ mongoose
   })
   .then(() => {
     app.listen(PORT, () => {
+      // User.insertMany(users);
+      // Category.insertMany(categorias);
       console.log(`Server running on port localhost:${PORT}`);
     });
   })

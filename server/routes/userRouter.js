@@ -6,20 +6,18 @@ const userRouter = express.Router();
 
 const { createUser, loginUser, updateUser } = userController();
 
+// create user
 userRouter.route("/register").post(async (req, res) => {
   const { status_code, ...rest } = await createUser(req.body);
 
   return res.status(status_code).json(rest);
 });
 
-userRouter
-  .route("/login")
+userRouter.route("/login").post(async (req, res) => {
+  const { status_code, ...rest } = await loginUser(req.body);
 
-  .post(async (req, res) => {
-    const { status_code, ...rest } = await loginUser(req.body);
-
-    return res.status(status_code).json(rest);
-  });
+  return res.status(status_code).json(rest);
+});
 
 // update user
 userRouter.route("/:userId").patch(verifyToken, async (req, res) => {
