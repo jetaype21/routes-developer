@@ -1,0 +1,71 @@
+.container {
+  width: 100%;
+  background: var(--backgroundVariant);
+  padding: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 1rem;
+  font-size: 1rem;
+  /* transition: all 2s ease-in-out; */
+}
+
+.logo {
+  font-family: var(--fontKonif);
+  color: #f55ee6;
+}
+
+.logo:hover {
+  color: #a70899;
+}
+
+.options {
+  display: flex;
+  gap: 0.5rem;
+  text-decoration: none;
+  list-style: none;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.options li {
+  font-size: 0.9rem;
+}
+
+.button__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.button__container button {
+  border: none;
+  outline: none;
+  padding: 0.5em;
+  background-color: #7666ff;
+  border-radius: 0.5rem;
+  color: var(--textColor);
+  font-family: var(--fontKonif);
+  cursor: pointer;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+  .options {
+    display: none;
+  }
+
+  .button__container {
+    justify-content: center;
+  }
+}
+
+/* Estilos para pantallas medianas */
+@media (min-width: 769px) and (max-width: 1200px) {
+  /* Otros cambios de estilo */
+}
+
+/* Estilos para pantallas grandes */
+@media (min-width: 1201px) {
+  /* Ajustes adicionales para pantallas grandes */
+}
