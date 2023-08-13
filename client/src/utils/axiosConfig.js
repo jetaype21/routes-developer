@@ -2,7 +2,7 @@ import axios from "axios";
 
 // base url
 const axiosConfig = axios.create({
-  baseURL: "http://localhost:8000/api",
+  baseURL: "https://routdev.onrender.com/api",
 });
 
 // default config
