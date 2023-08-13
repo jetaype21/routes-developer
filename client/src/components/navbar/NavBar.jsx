@@ -11,7 +11,7 @@ const NavBar = ({ handleOpenModal }) => {
     },
     {
       name: "Cursos",
-      url: "/cursos",
+      url: "/rutas-cursos",
     },
     {
       name: "Acerca",

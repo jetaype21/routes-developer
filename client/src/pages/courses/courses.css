@@ -1,0 +1,28 @@
+.card__container {
+  display: grid;
+  margin-top: 1rem;
+  justify-content: center;
+  /* place-items: center; */
+  /* width: ;  */
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  min-height: 90vh;
+}
+
+.card__flex {
+  justify-content: space-around;
+}
+
+.card__flex .cardCourse {
+  /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+  /* flex: 1;
+  max-width: 350px; */
+}
+
+@media (max-width: 768px) {
+  .card__container {
+    justify-content: center;
+  }
+}

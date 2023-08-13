@@ -52,3 +52,39 @@ export const categories = async () => {
     console.log(error);
   }
 };
+
+export const getCourses = async () => {
+  try {
+    const response = await axiosConfig.get("/course");
+    return response.data.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const sendLikeCourse = async (id_course, user_id, token) => {
+  try {
+    const response = await axiosConfig.post(
+      `/course/${id_course}`,
+      { user_id },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    const courseResponse = response.data.data;
+    return {
+      message: `Cursos ${courseResponse.name} agregado a favoritos`,
+      status: CODE_SUCCCES_RESPONSE,
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      message: error.response.data.message,
+      status: error.response.status || CODE_ERROR_INTERNAL_RESPONSE,
+    };
+  }
+};
